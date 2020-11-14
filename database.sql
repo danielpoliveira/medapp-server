@@ -36,6 +36,7 @@ CREATE TABLE recepcionista (
 CREATE TABLE agendamento (
   id SERIAL PRIMARY KEY,
   datetime timestamp NOT NULL,
+  status VARCHAR(30) DEFAULT 'em andamento',
   
   fk_id_paciente INTEGER NOT NULL REFERENCES patient,
   fk_id_medico INTEGER NOT NULL REFERENCES medic
@@ -117,3 +118,11 @@ WHERE
   datetime >= '2020-11-22' 
 and
   datetime < '2020-11-23';
+
+
+INSERT INTO agendamento
+  (datetime, fk_id_paciente, fk_id_medico)
+values
+  ('2020-11-22 14:30:00', 1, 2),
+  ('2020-11-27 09:40:00', 2, 3),
+  ('2020-11-29 14:30:00', 2, 1);

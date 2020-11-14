@@ -8,12 +8,14 @@ class Agendamento extends Model {
   public id!: number;
   public fk_id_paciente!: number;
   public fk_id_medico!: number;
+  public status!: string;
   public datetime!: string;
 }
 
 Agendamento.init({
   fk_id_paciente: Sequelize.NUMBER,
   fk_id_medico: Sequelize.NUMBER,
+  status: Sequelize.STRING,
   datetime: Sequelize.STRING,
 }, {
   sequelize: database.connection,

@@ -18,6 +18,13 @@ User.init({
   modelName: 'recepcionista',
   freezeTableName: true,
   timestamps: false,
+  defaultScope: {
+    attributes: {
+      exclude: ['password']
+    }
+  }
 })
+
+
 
 export default User;

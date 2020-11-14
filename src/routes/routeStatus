@@ -1,0 +1,15 @@
+POST 	  login 		          OK
+POST 	  signup	            OK
+
+GET 	  medicos	            OK
+
+GET     lista Agendamentos  OK
+GET     agendamento	        OK
+POST    agendamento         OK
+PUT     agendamento         OK
+DELETE  agendamento         OK
+
+GET     lista pacientes
+GET     paciente
+POST    paciente
+
