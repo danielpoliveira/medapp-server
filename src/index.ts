@@ -1,12 +1,9 @@
-import express, { Request, Response } from 'express';
-import cors from 'cors';
+import 'dotenv/config';
 
-const PORT = process.env.PORT || 33333;
+import app from "./app";
 
-const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(cors());
-
-app.listen(PORT, () => console.log(`BACKEND is running on port ${PORT}`));
-
-
+app.listen(PORT, () => {
+  console.log(`BACKEND is running on PORT ${PORT}`);
+});
