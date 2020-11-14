@@ -121,5 +121,77 @@ export default {
     });
 
     return res.json({ status: 'ok' });
-  }
+  },
+
+  //GET pacientes -> all pacientes
+  //GET paciente  -> filtered nome and id
+  async getPatients(req: Request, res: Response) {
+    const { id, nome } = req.query;
+    const where: WhereOptions = {};
+
+    if (id) {
+      where.id = id;
+    }
+
+    if (nome) {
+      where.nome = {
+        [Op.iLike]: '%' + nome + '%',
+      }
+    }
+
+    const pacientes = await Patient.findAll({
+      where,
+    });
+
+    return res.json(pacientes);
+  },
+
+  async addPatient(req: Request, res: Response) {
+    const {
+      nome,
+      cpf,
+      rg,
+      naturalidade,
+      estado_civil,
+      tipo_sanguineo,
+      celular,
+      whatsapp,
+      convenio,
+      plano,
+    } = req.body;
+
+    if (!nome || !cpf || !rg || !naturalidade || !estado_civil || !celular) {
+      return res.status(400).send({
+        errors: 'there is one or more empty fields',
+      });
+    }
+
+    const checkPatient = await Patient.findOne({
+      where: {
+        [Op.or]: [{ rg }, { cpf }]
+      }
+    });
+
+    if (checkPatient) {
+      return res.status(400).send({
+        errors: 'CPF ou RG já cadastrado',
+      });
+    }
+
+    const patient = await Patient.create({
+      nome,
+      cpf,
+      rg,
+      naturalidade,
+      estado_civil,
+      tipo_sanguineo,
+      celular,
+      whatsapp,
+      convenio,
+      plano,
+    })
+
+    return res.json(patient);
+  },
 }
+

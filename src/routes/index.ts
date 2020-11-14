@@ -13,4 +13,7 @@ routes.post('/user/agendamentos/new',   UserController.create);
 routes.put('/user/agendamentos/edit',   UserController.update);
 routes.delete('/user/agendamentos/remove/:id', UserController.destroy);
 
+routes.get('/user/pacientes/all', UserController.getPatients);
+routes.post('/user/pacientes/new', UserController.addPatient);
+
 export default routes;
