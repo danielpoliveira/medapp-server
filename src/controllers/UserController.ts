@@ -195,5 +195,27 @@ export default {
 
     return res.json(patient);
   },
+
+  async getMedics(req: Request, res: Response) {
+    const { id, nome } = req.query;
+
+    const where: WhereOptions = {};
+
+    if(id) {
+      where.id = id;
+    }
+
+    if(nome) {
+      where.nome = {
+        [Op.iLike]: '%' + nome + '%',
+      }
+    }
+
+    const medics = await Medic.findAll({
+      where,
+    });
+
+    return res.json(medics);
+  }
 }
 

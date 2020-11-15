@@ -7,9 +7,10 @@ POST    agendamento         OK
 PUT     agendamento         OK
 DELETE  agendamento         OK
 
-//GET 	  medicos	          
+GET 	  lista medicos       OK
+GET 	  medico              OK
 
 GET     lista pacientes     OK
 GET     paciente            OK
-POST    paciente
+POST    paciente            OK
 
