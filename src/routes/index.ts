@@ -1,19 +1,15 @@
-import express from 'express';
-import AuthController from '../controllers/AuthController';
+import { Router } from 'express';
 
-import UserController from '../controllers/UserController';
+import authRoutes from './auth.routes';
+import agendamentoRoutes from './agendamento.routes';
+import pacienteRoutes from './paciente.routes';
 
-const routes = express.Router();
+import authMiddleware from '../middlewares/auth';
 
-routes.post('/auth/login', AuthController.login);
-routes.post('/auth/signUp', AuthController.signUp);
+const routes = Router();
 
-routes.get('/user/agendamentos/all',    UserController.index);
-routes.post('/user/agendamentos/new',   UserController.create);
-routes.put('/user/agendamentos/edit',   UserController.update);
-routes.delete('/user/agendamentos/remove/:id', UserController.destroy);
-
-routes.get('/user/pacientes/all', UserController.getPatients);
-routes.post('/user/pacientes/new', UserController.addPatient);
+routes.use('/auth', authRoutes);
+routes.use('/user/agendamentos', authMiddleware, agendamentoRoutes);
+routes.use('/user/pacientes', authMiddleware, pacienteRoutes);
 
 export default routes;

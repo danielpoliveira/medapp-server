@@ -2,11 +2,12 @@ import { Request, Response } from "express";
 import { WhereOptions, Op } from "sequelize";
 
 import moment from 'moment';
-moment.locale('pt-br');
 
 import Agendamento from "../models/Agendamento";
 import Medic from "../models/Medic";
 import Patient from "../models/Patient";
+
+moment.locale('pt-br');
 
 export default {
 

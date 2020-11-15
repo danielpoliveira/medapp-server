@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import generateToken from '../config/generateToken';
 
 import User from '../models/User';
 
@@ -20,12 +21,10 @@ export default {
     });
 
     if (!user) {
-      return res.status(400).send({
-        errors: 'email or password invalids',
-      });
+      return res.status(400).send({ errors: 'email or password invalids' });
     }
 
-    return res.json(user);
+    return res.send({ user, token: generateToken({ id: user.id }) });
   },
 
   async signUp(req: Request, res: Response) {
@@ -51,7 +50,6 @@ export default {
 
     user = await User.create({ nome, email, password });
 
-    return res.json(user);
-
+    return res.send({ user, token: generateToken({ id: user.id }) });
   },
 }
