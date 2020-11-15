@@ -146,6 +146,7 @@ export default {
     return res.json(pacientes);
   },
 
+  //POST paciente  -> [nome, cpf, rg, naturalidade, estado_civil, celular] required
   async addPatient(req: Request, res: Response) {
     const {
       nome,
