@@ -166,6 +166,12 @@ export default {
       convenio,
       plano,
     } = req.body;
+
+    const avatar_uri = req.file.filename ?? '';
+
+    console.log('body: -------> ', req.body);
+    console.log('file: -------> ', avatar_uri);
+    
   
     if (!nome || !sexo || !cpf || !rg || !naturalidade || !estado_civil || !celular) {
       return res.status(400).send({
@@ -188,6 +194,7 @@ export default {
     const patient = await Patient.create({
       nome,
       sexo,
+      avatar_uri,
       data_nascimento,
       cpf,
       rg,
@@ -201,6 +208,8 @@ export default {
     })
 
     return res.json(patient);
+
+    return res.send({ status: 'ok'});
   },
 
   async getMedics(req: Request, res: Response) {
