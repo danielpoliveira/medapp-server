@@ -9,8 +9,13 @@ CREATE TABLE patient (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(50) NOT NULL,
 
+  sexo CHAR(1) NOT NULL,
+
   cpf VARCHAR(11) NOT NULL,
   rg VARCHAR(12) NOT NULL,
+
+  data_nascimento DATE NOT NULL,
+  avatar_src TEXT,
   
   naturalidade VARCHAR(20) NOT NULL,
   estado_civil VARCHAR(10) NOT NULL,

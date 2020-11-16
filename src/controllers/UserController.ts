@@ -35,7 +35,7 @@ export default {
       include: [Medic, Patient],
       order: [
         ['datetime', 'DESC'],
-      ]
+      ],
     });
 
     return res.json(agendamento);
@@ -110,6 +110,9 @@ export default {
   //DELETE agendamento -> [id] required
   async destroy(req: Request, res: Response) {
     const { id } = req.params;
+
+    console.log(id);
+    
 
     if (!id) {
       return res.status(400).send({ errors: 'id empty' });
@@ -201,11 +204,11 @@ export default {
 
     const where: WhereOptions = {};
 
-    if(id) {
+    if (id) {
       where.id = id;
     }
 
-    if(nome) {
+    if (nome) {
       where.nome = {
         [Op.iLike]: '%' + nome + '%',
       }
