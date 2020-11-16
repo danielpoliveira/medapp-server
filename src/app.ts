@@ -16,10 +16,6 @@ app.use(bodyParser.json());
 
 app.use(routes);
 
-/*app.get('/', (req: Request, res: Response) => {
-  res.json({
-    info: 'Funcionando'
-  });
-});*/
+
 
 export default app;

@@ -6,6 +6,7 @@ class Patient extends Model {
   public id!: number;
   public sexo!: string;
   public data_nascimento!: string;
+  public avatar_uri!: 'string';
   public nome!: string;
   public cpf!: string;
   public rg!: string;
@@ -21,6 +22,7 @@ class Patient extends Model {
 Patient.init({
   nome: Sequelize.STRING,
   sexo: Sequelize.STRING,
+  avatar_uri: Sequelize.STRING,
   data_nascimento: Sequelize.STRING,
   cpf: Sequelize.STRING,
   rg: Sequelize.STRING,
