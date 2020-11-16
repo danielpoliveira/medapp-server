@@ -4,6 +4,8 @@ import database from '../database';
 
 class Patient extends Model {
   public id!: number;
+  public sexo!: string;
+  public data_nascimento!: string;
   public nome!: string;
   public cpf!: string;
   public rg!: string;
@@ -18,6 +20,8 @@ class Patient extends Model {
 
 Patient.init({
   nome: Sequelize.STRING,
+  sexo: Sequelize.STRING,
+  data_nascimento: Sequelize.STRING,
   cpf: Sequelize.STRING,
   rg: Sequelize.STRING,
   naturalidade: Sequelize.STRING,

@@ -112,7 +112,7 @@ export default {
     const { id } = req.params;
 
     console.log(id);
-    
+
 
     if (!id) {
       return res.status(400).send({ errors: 'id empty' });
@@ -154,7 +154,9 @@ export default {
   async addPatient(req: Request, res: Response) {
     const {
       nome,
+      sexo,
       cpf,
+      data_nascimento,
       rg,
       naturalidade,
       estado_civil,
@@ -164,8 +166,8 @@ export default {
       convenio,
       plano,
     } = req.body;
-
-    if (!nome || !cpf || !rg || !naturalidade || !estado_civil || !celular) {
+  
+    if (!nome || !sexo || !cpf || !rg || !naturalidade || !estado_civil || !celular) {
       return res.status(400).send({
         errors: 'there is one or more empty fields',
       });
@@ -185,6 +187,8 @@ export default {
 
     const patient = await Patient.create({
       nome,
+      sexo,
+      data_nascimento,
       cpf,
       rg,
       naturalidade,
