@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-//import dbConfig from '../config/database';
+import dbConfig from '../config/database';
 
 class Database {
   public connection: any;
@@ -9,17 +9,7 @@ class Database {
   }
 
   init(): void {
-    this.connection = new Sequelize.Sequelize({
-      database: 'medapp',
-      username: 'me',
-      password: '12345',
-      dialect: 'postgres',
-      host: 'localhost',
-      define: {
-        timestamps: true,
-        underscored: true,
-      }
-    });
+    this.connection = new Sequelize.Sequelize(dbConfig);
   }
 }
 
