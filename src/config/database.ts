@@ -11,7 +11,7 @@ export default {
 
 
 
-  host: 'ec2-100-25-231-126.compute-1.amazonaws.com',
+  /*host: 'ec2-100-25-231-126.compute-1.amazonaws.com',
   database: 'd7tvi7844ljatk',
   username: 'fepqhnavxlpoqt',
   port: 5432,
@@ -20,10 +20,10 @@ export default {
   define: {
     timestamps: true,
     underscored: true,
-  }
+  }*/
   
 
-  /*database: 'medapp',
+  database: 'medapp',
   username: 'me',
   password: '12345',
   dialect: 'postgres',
@@ -31,7 +31,7 @@ export default {
   define: {
     timestamps: true,
     underscored: true,
-  }*/
+  }
 
 }
 
