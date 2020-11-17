@@ -34,7 +34,7 @@ export default {
       where,
       include: [Medic, Patient],
       order: [
-        ['datetime', 'DESC'],
+        ['datetime', 'ASC'],
       ],
     });
 

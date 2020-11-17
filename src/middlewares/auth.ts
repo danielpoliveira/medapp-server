@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express';
-import jwt, { VerifyErrors, DecodeOptions } from 'jsonwebtoken';
+import { NextFunction, Response } from 'express';
+import jwt from 'jsonwebtoken';
 import authJson from '../config/auth.json';
 
 export default (req: any, res: Response, next: NextFunction) => {
