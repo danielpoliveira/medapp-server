@@ -1,5 +1,11 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import Sequelize from 'sequelize';
 import dbConfig from '../config/database';
+
+const isProduction = process.env.NODE_ENV === 'production';
+
 
 class Database {
   public connection: any;
@@ -9,7 +15,14 @@ class Database {
   }
 
   init(): void {
-    this.connection = new Sequelize.Sequelize(dbConfig);
+    this.connection = new Sequelize.Sequelize(process.env.DATABASE_URL, {
+      dialect: "postgres",
+      protocol: "postgres",
+      port: 5432,
+      
+    });
+
+    //this.connection = new Sequelize.Sequelize(dbConfig);
   }
 }
 

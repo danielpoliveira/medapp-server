@@ -32,9 +32,6 @@ CREATE TABLE public.agendamento (
     fk_id_medico integer NOT NULL
 );
 
-
-ALTER TABLE public.agendamento OWNER TO me;
-
 --
 -- Name: agendamento_id_seq; Type: SEQUENCE; Schema: public; Owner: me
 --
@@ -46,9 +43,6 @@ CREATE SEQUENCE public.agendamento_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
-ALTER TABLE public.agendamento_id_seq OWNER TO me;
 
 --
 -- Name: agendamento_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: me
@@ -67,8 +61,6 @@ CREATE TABLE public.medic (
 );
 
 
-ALTER TABLE public.medic OWNER TO me;
-
 --
 -- Name: medic_id_seq; Type: SEQUENCE; Schema: public; Owner: me
 --
@@ -80,9 +72,6 @@ CREATE SEQUENCE public.medic_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
-ALTER TABLE public.medic_id_seq OWNER TO me;
 
 --
 -- Name: medic_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: me
@@ -112,9 +101,6 @@ CREATE TABLE public.patient (
     avatar_uri text DEFAULT ''::text NOT NULL
 );
 
-
-ALTER TABLE public.patient OWNER TO me;
-
 --
 -- Name: patient_id_seq; Type: SEQUENCE; Schema: public; Owner: me
 --
@@ -126,9 +112,6 @@ CREATE SEQUENCE public.patient_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
-ALTER TABLE public.patient_id_seq OWNER TO me;
 
 --
 -- Name: patient_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: me
@@ -148,9 +131,6 @@ CREATE TABLE public.recepcionista (
     password character varying(100) NOT NULL
 );
 
-
-ALTER TABLE public.recepcionista OWNER TO me;
-
 --
 -- Name: recepcionista_id_seq; Type: SEQUENCE; Schema: public; Owner: me
 --
@@ -162,9 +142,6 @@ CREATE SEQUENCE public.recepcionista_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
-ALTER TABLE public.recepcionista_id_seq OWNER TO me;
 
 --
 -- Name: recepcionista_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: me
